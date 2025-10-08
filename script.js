@@ -1,4 +1,8 @@
+const addButton = document.getElementById("add-item-btn");
+const alertButton = document.getElementById("alert-btn");
+const consoleButton = document.getElementById("console-btn");
 
+const taskList = document.getElementById("item-list");
 // Array of 10 random tasks as strings
 const tasks = [
 	"Complete the project",
@@ -12,3 +16,23 @@ const tasks = [
 	"Optimize the performance",
 	"Design",
 ];
+
+const addTask = () => {
+	const randomIndex = Math.floor(Math.random() * tasks.length);
+	const newTask = tasks[randomIndex];
+	const listItem = document.createElement("li");
+	listItem.textContent = newTask;
+	taskList.appendChild(listItem);
+	taskList.scrollTop = taskList.scrollHeight;
+};
+
+addButton.addEventListener("click", addTask);
+alertButton.addEventListener("click", () => {
+	alert("ALAAAAAARM!");
+});
+
+let logTracker = 0;
+consoleButton.addEventListener("click", () => {
+    logTracker += 1;
+	console.log(`${logTracker}x gelogged!`);
+});
