@@ -17,19 +17,14 @@ const tasks = [
 	"Design",
 ];
 
-const addTask = () => {
-	const randomIndex = Math.floor(Math.random() * tasks.length);
-	const newTask = tasks[randomIndex];
+addButton.addEventListener("click", () => {
 	const listItem = document.createElement("li");
-	listItem.textContent = newTask;
+	listItem.textContent = tasks[Math.floor(Math.random() * tasks.length)];
 	taskList.appendChild(listItem);
 	taskList.scrollTop = taskList.scrollHeight;
-};
-
-addButton.addEventListener("click", addTask);
-alertButton.addEventListener("click", () => {
-	alert("ALAAAAAARM!");
 });
+
+alertButton.addEventListener("click", () => alert("ALAAAAAARM!"));
 
 let logTracker = 0;
 consoleButton.addEventListener("click", () => {
